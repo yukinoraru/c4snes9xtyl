@@ -1,0 +1,98 @@
+!!!
+%html
+  %head
+    %meta{:charset => "UTF-8"}
+
+    / -------------------------------------------
+    / Included CSS Files
+    / -------------------------------------------
+    / Original
+    %link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}
+    / Foundation
+    %link{:href => "stylesheets/foundation.css", :rel => "stylesheet", :type => "text/css"}
+
+    / -------------------------------------------
+    / Included JS Files
+    / -------------------------------------------
+    / jQuery
+    %script{:src => "javascripts/jquery.min.js"}
+    %script{:src => "javascripts/jquery.autoresize.js"}
+    %script{:src => "javascripts/jquery.textchange.min.js"}
+
+    / Foundation
+    %script{:src => "javascripts/foundation.js"}
+    %script{:src => "javascripts/modernizr.foundation.js"}
+    %script{:src => "javascripts/app.js"}
+
+    %title Cheat editor for Snes9xTYL
+
+  %body
+
+    / navigation bar
+    #navBar.container
+      .row
+        .four.columns
+          %h1
+            %a{:href => "index.html"} Cheat editor for Snes9xTYL
+        .eight.columns.hide-on-phones
+          %strong.right
+            %a{:href => "#usage"} Usage
+            %a{:href => "https://github.com/yukinoraru/cheat4snes9xtyl"} Github
+            %a.small.nice.button.src-download{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter/zipball/master"} Download
+    / container
+    .container
+      .row
+        .twelve.columns
+          .foundation-header
+            %h1
+              %a{:href => "#"} Cheat editor for Snes9xTYL
+            %h4.subheader sub header
+      .row
+        .twelve.columns
+          .six.columns
+            .twelve.columns
+              %h4 1. Paste your code
+            .panel
+              .twelve.columns
+                .panel{:style => "overflow:hidden;"}
+                  *You can input ONLY 24 CHEATS. (restricted by Snes9xTYL)
+              %textarea#src.expand{:placeholder => "paste", :rows => "13"}
+          .six.columns
+            .twelve.columns
+              %h4 2. Download .cht file
+              %br
+              %span#select-button.nice.radius.small.button
+                Download
+
+      .row
+        .twelve.columns
+          %br
+          %br
+          %a{:name => "features"}
+          %h3 How to Use
+
+
+      / footer
+      %footer.row
+        %section.five.columns
+          %h6
+            %strong INFORMATION
+          %p
+            This product is free, open-source software.
+            The source code is available over at
+            %a{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter"} GitHub.
+
+        %section.three.columns
+          %h6
+            %strong REPORTING ISSUES
+          %p
+            Please report any issues you find over to the
+            %a{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter"} GitHub.
+
+        %section.four.columns
+          %h6
+            %strong ACKNOWLEDGEMENTS
+          %p
+            Thanks to the hard work of this product's dependency projects.
+            %a{:href => "http://foundation.zurb.com/"} ZURB Foundation →
+
