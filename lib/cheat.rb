@@ -3,8 +3,26 @@ class Cheat
   attr_reader :type, :name, :code
   attr_accessor :pad
 
-  def self.parse
-
+  def self.parse(raw)
+    if raw == nil || raw.length < 10
+      return []
+    end
+    cheats = []
+    lines = raw.split("\n")
+    lines.each_with_index{|line, i|
+      # skip lines
+      # TODO: regexp is not correct.
+      next if !(line =~ /^#[ \w\W]+$/)
+      if i+1 < lines.length
+        name  = line[1..-1].strip
+        body  = lines[i+1]
+        if name.length > 0 && body.length == 8
+          cheat = Cheat.new(name, body)
+          cheats << cheat
+        end
+      end
+    }
+    return cheats
   end
 
   # それぞれ十六進表記の文字列
@@ -20,13 +38,15 @@ class Cheat
   # コードが文法的に正しいかチェック(正しければtrue)
   def validate()
 	if (@code.scan(/[\dA-Fa-f]{2,2}/).length != 4)
-		return false
+		return 1
 	elsif (@type.length != 2)
-		return false
+		return 2
 	elsif (@pad.length != 6)
-		return false
-	elsif (@name.length >= 20)
-		return false
+		return 3
+	elsif (@name.length >= 20 || @name.length == 0)
+		return 4
+	elsif (@code.length != 8)
+		return 5
 	end
 	return true
   end

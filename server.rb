@@ -2,21 +2,15 @@ require 'sinatra'
 require 'sass'
 require 'haml'
 require 'json'
-require './cheat.rb'
+require './lib/cheat.rb'
 
 set :public_folder, File.dirname(__FILE__) + '/public'
 
 get '/download' do
 
   # deserialize cheat
-  raw = params["cheat"]
-  cheats = [
-    Cheat.new("Shiawaseno udewa", "7E898401"),
-    Cheat.new("Shiawaseno udewa", "7E898401"),
-    Cheat.new("Shiawaseno udewa", "7E898401"),
-    Cheat.new("Shiawaseno udewa", "7E898401"),
-    Cheat.new("Shiawaseno udewa", "7E898401"),
-  ]
+  raw    = params["cheats"]
+  cheats = Cheat.parse(raw)
 
   # check error if params[:check] is set
   if params[:check]
@@ -24,10 +18,13 @@ get '/download' do
     error = {}
     if cheats.length > 24
       error = {:error => "You can input only 24 cheats."}
+    elsif cheats.length == 0
+      error = {:error => "no cheats"}
     else
       cheats.each_with_index{ |c, i|
-        if !c.validate()
-          error = {:error => "Some thing wrong with No.#{i}."}
+        #p "kita#{i}/#{cheats.length}=#{c.validate}"
+        if !c.validate
+          error = {:error => "Some thing wrong with No.#{i}"}
           break
         end
       }
