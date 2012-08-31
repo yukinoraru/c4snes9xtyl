@@ -4,15 +4,13 @@
     %meta{:charset => "UTF-8"}
 
     / -------------------------------------------
-    / Included CSS Files
+    / Include CSS Files
     / -------------------------------------------
-    / Original
-    %link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}
     / Foundation
     %link{:href => "stylesheets/foundation.css", :rel => "stylesheet", :type => "text/css"}
 
     / -------------------------------------------
-    / Included JS Files
+    / Include JS Files
     / -------------------------------------------
     / jQuery
     %script{:src => "javascripts/jquery.min.js"}
@@ -23,6 +21,12 @@
     %script{:src => "javascripts/foundation.js"}
     %script{:src => "javascripts/modernizr.foundation.js"}
     %script{:src => "javascripts/app.js"}
+
+    / -------------------------------------------
+    / Include Original
+    / -------------------------------------------
+    %link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}
+    %script{:src => "/org.js"}
 
     %title Cheat editor for Snes9xTYL
 
@@ -51,18 +55,19 @@
         .twelve.columns
           .six.columns
             .twelve.columns
-              %h4 1. Paste your code
+              %h4 1. Paste cheats
             .panel
               .twelve.columns
                 .panel{:style => "overflow:hidden;"}
-                  *You can input ONLY 24 CHEATS. (restricted by Snes9xTYL)
+                  Filename:
+                  %input#filename{:placeholder => "cheat", :type => "text"} .cht
               %textarea#src.expand{:placeholder => "paste", :rows => "13"}
           .six.columns
             .twelve.columns
               %h4 2. Download .cht file
               %br
-              %span#select-button.nice.radius.small.button
-                Download
+              %span#download_btn.nice.radius.small.button
+                Download .cht
 
       .row
         .twelve.columns
