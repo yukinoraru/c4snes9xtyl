@@ -43,6 +43,7 @@
             %a{:href => "#usage"} Usage
             %a{:href => "https://github.com/yukinoraru/cheat4snes9xtyl"} Github
             %a.small.nice.button.src-download{:href => "https://github.com/yukinoraru/Ugly-Syntax-Highlighter/zipball/master"} Download
+
     / container
     .container
       .row
@@ -50,7 +51,7 @@
           .foundation-header
             %h1
               %a{:href => "#"} Cheat editor for Snes9xTYL
-            %h4.subheader sub header
+            %h4.subheader Convert cheats text to .cht file
       .row
         .twelve.columns
           .six.columns
@@ -67,7 +68,9 @@
               %h4 2. Download .cht file
               %br
               %br
-              #file_info
+              %span#file_info.red.radius.label{:style => "display: none;"}
+              %br
+              %br
               %br
               %span#download_btn.nice.radius.small.button{:style => "display: none;"}
                 Download .cht
@@ -76,8 +79,28 @@
         .twelve.columns
           %br
           %br
-          %a{:name => "features"}
+          %a{:name => "usage"}
+
           %h3 How to Use
+          This tool is created to convert cheats text to .cht file on
+          %a{:href=>"http://yoyofr92.free.fr/psp/snespsp.html"} SnesPSP_TYL.
+
+          %br
+          %br
+
+          .eight.columns
+            .panel
+              %h5 Example Cheat Format
+              %br
+              %div{:style=>""}
+                \# 1. cheat name
+                %br
+                XXXXXXXX
+                %br
+                \# 2. cheat name
+                %br
+                XXXXXXXX
+                %br
 
 
       / footer

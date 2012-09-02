@@ -19,12 +19,12 @@ get '/download' do
     if cheats.length > 24
       error = {:error => "You can input only 24 cheats."}
     elsif cheats.length == 0
-      error = {:error => "no cheats"}
+      error = {:error => "no valid cheats found."}
     else
       cheats.each_with_index{ |c, i|
         #p "kita#{i}/#{cheats.length}=#{c.validate}"
         if !c.validate
-          error = {:error => "Some thing wrong with No.#{i}"}
+          error = {:error => "Some thing wrong with cheat No.#{i+1}"}
           break
         end
       }

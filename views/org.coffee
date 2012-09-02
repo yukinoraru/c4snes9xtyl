@@ -24,9 +24,14 @@ $ ->
         console.log data
         if data.error
           $("#download_btn").css display: "none"
-          $("#file_info").text data.error
+          $("#file_info").css display: ""
+          $("#file_info").text "ERROR: " + data.error
+          $("#file_info").addClass "red"
+          $("#file_info").removeClass "green"
         else
           # no error
+          $("#file_info").addClass "green"
+          $("#file_info").removeClass "red"
           $("#file_info").text data.noc + " cheats found."
           $("#download_btn").css display: ""
 
