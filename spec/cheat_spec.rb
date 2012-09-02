@@ -82,7 +82,6 @@ describe Cheat do
 
       ].each{|c|
         cheats = Cheat.parse(c)
-        pp cheats
         cheats.length.should == 0
       }
     end
